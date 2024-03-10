@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 基础选择器 */
+        /* 标签选择器：写上标签 */
+        h3 {
+            color: red;
+        }
+
+        table {
+            color: green;
+        }
+
+        /* 类选择器口诀：样式点定义 结构类（class）调用 一个或多个 开发最常用 */
+        .pink {
+            color: pink;
+        }
+
+        /* id选择器的口诀：样式#定义，结构id调用，只能调用一次，别人切勿使用 */
+        /* 实际操作中别人可以使用，暂时不什么原因 */
+        #yellow {
+            color: yellow;
+        }
+
+        /* 通配符选择器：把HTML body div span li 等等的标签都改为蓝色 */
+        /* 在css中，通配符选择器使用“*”定义，表示选取页面中所有元素（标签） */
+        /* 不需要调用，自动就给所用的元素使用样式 */
+        /* * {
+            color: blue;
+        } */
+        /* css使用font-family属性定义文本的字体系列 
+        font-size属性定义字体大小  px像素 
+        
+        若定义body整个文字大小，其中的标题标签比较特殊 需要单独指定文字大小*/
+        /* 使用font-weight属性设置文本 字体的粗细*/
+
+        p {
+            font-family: "微软雅黑";
+        }
+
+        h4 {
+            font-family: "Microsoft YaHei"
+        }
+
+        body {
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        /* font-style属性设置文本的方格
+        normal 作用 默认值 浏览器会显示标准的字体样式 font-style:normal;
+        italic 作用 浏览器会显示斜体的字体样式
+        平时很少给文字加斜体 反而要给斜体标签（em,i)改为不倾斜字体 */
+        p {
+            font-style: italic;
+        }
+
+        /* font 复合属性写法 简写方式  节约代码
+        font font-style font-weight font-size/line-height font-family;*/
+        /* 使用font属性时，必须按上面语法格式中的顺序书写，不能更换顺序，并且各个属性间以空格隔开 
+        不需要设置的属性可以省略，但必须保留font-size和font-family属性，否者font属性将不起作用
+        */
+
+        div {
+            /* font-style: italic;
+            font-weight: 700;
+            font-size:19px;
+            font-family: 'Microsoft YaHei'; */
+            font: italic 700 19px 'Microsoft YaHei';
+        }
+
+        .one {
+            text-align: center;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 表格属性要写到标签table里面 -->
+    <table align="center" border="1" cellpadding="20" cellspacing="0" width="500" height="500">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>刘德华</td>
+            <td>男</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>张学友</td>
+            <td>男</td>
+            <td>58</td>
+        </tr>
+        <tr>
+            <td>郭富城</td>
+            <td>男</td>
+            <td>51</td>
+        </tr>
+    </table>
+    <!-- class后可加多类名 中间用空格隔开 -->
+    <hr>
+    <ul class="pink">
+        <li>罗峰</li>
+        <li>洪</li>
+        <li>雷神</li>
+    </ul>
+    <ol id="yellow">
+        <li>钻山锥</li>
+        <li>弧刀盘</li>
+
+    </ol>
+    <dl>
+        <dt>吞噬星空</dt>
+        <dd>徐欣</dd>
+        <dd>罗平</dd>
+        <dd>罗海</dd>
+    </dl>
+    <form>
+        <!-- text 文本框 用户可以在里面输入任何文本文字 -->
+        用户名：<input type="text" name="username" value="请输入用户名" maxlength="6"><br>
+        <!-- password 密码框 用户看不见输入的密码 -->
+        密&nbsp;&nbsp;码：<input type="password" name="pwd"><br>
+        <!-- radio 单选按钮 可以实现多选一 -->
+        <!-- name 是表单元素名字 这里性别单选按钮必须有相同的名字name才可以实现多选一 -->
+        <!-- 单选按钮和复选框可以设置checked属性，当页面打开的时候就可以默认选中这个按钮 -->
+        <!-- 性别：男 <input type="radio" name="sex"> 女 <input type="radio" name="sex" checked="checked"> 人妖 <input type="radio" name="sex"><br> -->
+        <!-- checkbox  复选框 可以实现多 -->
+        爱好：吃饭<input type="checkbox" name="hobby" vlaue="吃饭">睡觉<input type="checkbox" name="hobby">打豆豆<input
+            type="checkbox" name="hobby" checked="checked">
+        <br>
+        <!-- 点击提交按钮，可以把表单域form里面的的表单元素里面的值提交给后台服务器 -->
+        <!-- <input type="submit"value="免费注册"> -->
+        <!-- 重置按钮可以还原表单元素初始的默认状态 -->
+        <input type="reset" value="重新填写">
+        <br>
+        <!-- 普通按钮button 后期结合js搭配使用 -->
+        <input type="button" value="获取短信验证码"><br>
+        <!-- 文件域 file 用于上传文件 -->
+        上传头像：<input type="file">
+    </form>
+    <label for="text">用户名：</label><input type="text" id="text">
+    <!-- <input type="radio"id="nan"><label for="nan">男</label> -->
+    <!-- <input type="radio"id="nv"><label for="nv">女</label> -->
+    <br>
+    籍贯：<select name="籍贯">
+        <option value="地球">地球</option>
+        <option value="火星" selected="selected">火星</option>
+        <option value="金星">金星</option>
+        <option value="木星">木星</option>
+    </select>
+    <br>
+    今日反馈：
+    <textarea name="今日反馈" id="text" cols="30" rows="10"></textarea>
+
+    <h3>青春不常在 抓紧谈恋爱</h3>
+    <br>
+    <table>
+        <!-- 第一行 -->
+        <tr>
+            <td>性别：</td>
+            <td>
+                <input type="radio" name="sex" id="nan"><label for="nan">男</label>
+                <input type="radio" name="sex" id="nv"><label for="nv">女</label>
+            </td>
+        </tr>
+        <!-- 第二行 -->
+        <tr>
+            <td>生日：</td>
+            <td>
+                <select name="生日" id="" value="请选择年">
+                    <option value="">--请选择年份--</option>
+                    <option value="">2000</option>
+                    <option value="">2001</option>
+                    <option value="">2002</option>
+                    <option value="">2003</option>
+                    <option value="">2004</option>
+                    <option value="">2005</option>
+                    <option value="">2006</option>
+                    <option value="">2007</option>
+                    <option value="">2008</option>
+                    <option value="">2009</option>
+                    <option value="">2010</option>
+                    <option value="">2011</option>
+                    <option value="">2012</option>
+                    <option value="">2013</option>
+                    <option value="">2014</option>
+                    <option value="">2015</option>
+                    <option value="">2016</option>
+                    <option value="">2017</option>
+                    <option value="">2018</option>
+                    <option value="">2019</option>
+                </select>
+                <select name="生日" id="">
+                    <option value="">--请选择月份--</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                </select>
+                <select name="生日" id="">
+                    <option value="">--请选择日期--</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                    <option value="">6</option>
+                    <option value="">7</option>
+                    <option value="">8</option>
+                    <option value="">9</option>
+                    <option value="">10</option>
+                    <option value="">11</option>
+                    <option value="">12</option>
+                    <option value="">13</option>
+                    <option value="">14</option>
+                    <option value="">15</option>
+                    <option value="">16</option>
+                    <option value="">17</option>
+                    <option value="">18</option>
+                    <option value="">19</option>
+                    <option value="">20</option>
+                    <option value="">21</option>
+                    <option value="">22</option>
+                    <option value="">23</option>
+                    <option value="">24</option>
+                    <option value="">25</option>
+                    <option value="">26</option>
+                    <option value="">27</option>
+                    <option value="">28</option>
+                    <option value="">29</option>
+                    <option value="">30</option>
+                    <option value="">31</option>
+                </select>
+            </td>
+        </tr>
+        <!-- 第三行 -->、
+        <tr>
+            <td>所在地：</td>
+            <td>
+                <input type="text">
+            </td>
+        </tr>
+        <!-- 第四行 -->
+        <tr>
+            <td>婚姻状况：</td>
+            <td>
+                <input type="radio" name="hunyin" id="no" checked="checked"><label for="no">未婚</label>
+                <input type="radio" name="hunyin" id="yes"><label for="yes">已婚</label>
+                <input type="radio" name="hunyin" id="yesno"><label for="yesno">离婚</label>
+            </td>
+        </tr>
+        <!-- 第五行 -->
+        <tr>
+            <td id="yellow">学历：</td>
+            <td>
+                <input type="text">
+            </td>
+        </tr>
+        <!-- 第六行 -->
+        <tr>
+            <td>喜欢的类型：</td>
+            <td>
+                <input type="checkbox">妩媚的
+                <input type="checkbox">可爱的
+                <input type="checkbox">小鲜肉
+                <input type="checkbox">老腊肉
+                <input type="checkbox">都喜欢
+            </td>
+        </tr>
+        <!-- 第七行 -->
+        <tr>
+            <td>自我介绍：</td>
+            <td>
+                <input type="text">
+            </td>
+        </tr>
+        <!-- 第八行 -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="免费注册">
+            </td>
+        </tr>
+        <!-- 第九行 -->
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" checked="checked">我同意注册条款和会员加入标准
+            </td>
+        </tr>
+        <!-- 第十行 -->
+        <tr>
+            <td></td>
+            <td><a href="#">我是会员，立即登录</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <h2>我承诺</h2>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <ul>
+                    <li>年满18岁，单身</li>
+                    <li>抱着严肃的态度</li>
+                    <li>真诚的寻找另一半</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <p>微软雅黑；吗咿呀嘿</p>
+    <h1>微软雅黑；吗咿呀嘿</h1>
+    <div>三生三世十里桃花，一心一意百行代码</div>
+    <img src=".\images\天下局.jpg" alt="天下局">
+    <a href="https://www.baidu.com/">baidu</a>
+</body>
+
+</html>
